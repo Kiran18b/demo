@@ -1,0 +1,113 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  /* Night sky gradient */
+  background: radial-gradient(circle at top, #0b1d3a 0%, #050b1a 40%, #000000 100%);
+
+  /* Star layers */
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 3px 3px, 4px 4px;
+  background-position: 0 0, 1.5px 1.5px;
+}
+
+#canvas {
+  display: block;
+}
+
+#bear {
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+  width: 110px;
+  z-index: 10;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+#bear:hover {
+  width: 112px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#rotateNotice .overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+}
+
+.rotate-content {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.emoji-top {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.rotate-message {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+  animation: fade-in-out 2s ease-in-out infinite;
+  letter-spacing: 1px;
+}
+
+.phone-icon {
+  font-size: 64px;
+  margin-top: 30px;
+  animation: rotate-phone 2s ease-in-out infinite;
+}
+
+.continue-button {
+  margin-top: 28px;
+  padding: 12px 22px;
+  border: 2px solid rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.1);
+  border-radius: 28px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.continue-button:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes rotate-phone {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-15deg) scale(1.05); }
+  75% { transform: rotate(15deg) scale(1.05); }
+}
